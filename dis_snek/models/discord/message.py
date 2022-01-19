@@ -592,6 +592,7 @@ def process_message_payload(
     file: Optional[Union["models.File", "IOBase", "Path", str]] = None,
     tts: bool = False,
     flags: Optional[Union[int, MessageFlags]] = None,
+    **kwargs,
 ) -> Union[Dict, FormData]:
     """
     Format message content for it to be ready to send discord.
@@ -636,6 +637,7 @@ def process_message_payload(
             "attachments": attachments,
             "tts": tts,
             "flags": flags,
+            **kwargs,
         }
     )
 

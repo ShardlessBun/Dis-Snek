@@ -124,8 +124,8 @@ class Webhook(DiscordObject, SendMixin):
     async def _send_http_request(self, message_payload: Union[dict, "FormData"]) -> dict:
         if not self.token:
             raise ForeignWebhookException("You cannot send messages with a webhook without a token!")
-        wait = message_payload.pop("wait")
-        return await self._client.http.execute_webhook(self.id, self.token, message_payload, wait)
+        # wait = message_payload.pop("wait")
+        return await self._client.http.execute_webhook(self.id, self.token, message_payload) #, wait)
 
     async def send(
         self,
